@@ -1,20 +1,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>POS - Multi Outlets</title>
-
-		<link href="http://localhost/Version4.0/Project/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="http://localhost/Version4.0/Project/assets/css/datepicker3.css" rel="stylesheet">
-		<link href="http://localhost/Version4.0/Project/assets/css/styles.css" rel="stylesheet">
-
-		<link href="http://localhost/Version4.0/Project/assets/css/icono.min.css" rel="stylesheet">
-
-		<!--[if lt IE 9]>
-		<script src="http://localhost/Version4.0/Project/assets/js/html5shiv.js"></script>
-		<script src="http://localhost/Version4.0/Project/assets/js/respond.min.js"></script>
-		<![endif]-->
-
+		<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/icono.min.css') }}" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 		<script type="text/javascript">
 		    $(document).ready(function () {
 		        $("#closeAlert").click(function () {
@@ -23,7 +14,7 @@
 		    });
 
 		</script>
-		<style type="text/css">
+		{{-- <style type="text/css">
 		    :root topadblock,
 		    :root input[onclick^="window.open('http://www.FriendlyDuck.com/"],
 		    :root img[alt^="Fuckbook"],
@@ -834,4 +825,4 @@
 		        display: none !important;
 		    }
 
-		</style>
+		</style> --}}
