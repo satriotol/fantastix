@@ -144,19 +144,19 @@
                 Setting </a>
             <ul class="children  collapse " id="sub-item-1">
                 <li>
-                        <a href="#">
+                    <a href="#">
                         Outlets </a>
                 </li>
                 <li>
-                        <a href="#">
+                    <a href="#">
                         Users </a>
                 </li>
                 <li>
-                        <a href="#">
+                    <a href="#">
                         Suppliers </a>
                 </li>
                 <li>
-                        <a href="#">
+                    <a href="#">
                         System Setting </a>
                 </li>
                 <li>
@@ -308,6 +308,7 @@
                 });
             });
         });
+
     </script>
 
     <div class="row">
@@ -545,13 +546,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <!--/.row-->
-
     <br><br><br>
 
 </div>
