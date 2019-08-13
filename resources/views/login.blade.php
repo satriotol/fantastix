@@ -17,10 +17,10 @@
                 <div class="panel-heading" style="height: 175px;">
                     Account Access
                     <br>
-                    <img src="img/logo.jpg" height="100px">
+                    <img src="{{ asset('img/logo.jpg') }}" height="100px">
                 </div>
                 <div class="panel-body">
-                    <form action="http://localhost/Version4.0/Project/auth/login" method="post">
+                    <form action="#" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control" autofocus="" autocomplete="off"
