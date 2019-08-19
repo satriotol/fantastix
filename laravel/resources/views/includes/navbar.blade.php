@@ -1,47 +1,34 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                POS - Multi Outlets </a>
-            <ul class="user-menu">
-                <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user">
-                            <use xlink:href="#stroked-male-user"></use>
-                        </svg> Owner <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><i class="icono-power"
-                                    style="color: #30a5ff;"></i> Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="user-menu">
-                <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{asset('img/english_flag.png')}}"> </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="#" style="text-decoration: none; color: #00598c;">
-                                <img src="{{asset('img/english_flag.png')}}">
-                                &nbsp;&nbsp;English
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" style="text-decoration: none; color: #00598c;">
-                                <img src="{{ asset('img/spanish_flag.png') }}">
-                                &nbsp;&nbsp;Spanish
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+<section class="navigasi">
+    <nav class="navbar navbar-expand-lg navbar-custom bg-custom fixed-top">
+        <a class="navbar-brand" href="/dashboard">POS - Multi Outlets</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-collapse"
+            aria-expanded="false">
+            <span class="fa fa-bars"></span>
+        </button>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('/public/img/english_flag.png') }}" alt="">
+                </a>
+                <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><img src="{{ asset('/public/img/english_flag.png') }}" alt=""> English</a>
+                    <a class="dropdown-item" href="#"><img src="{{ asset('/public/img/spanish_flag.png') }}" alt=""> Spain</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Owner
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
         </div>
-    </div><!-- /.container-fluid -->
-
-</nav>
+    </nav>
+</section>
