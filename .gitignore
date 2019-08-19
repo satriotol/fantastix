@@ -1,1 +1,3 @@
-laravel/.env
+.gitignore
+satrio
+satrio.pub
