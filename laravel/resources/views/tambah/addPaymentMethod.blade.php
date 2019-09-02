@@ -1,6 +1,5 @@
 @extends('layouts.default-sidebar')
 @section('content')
-
 <div class="col-sm-9 col-lg-10">
     <div class="container">
         <h1>Add Payment Method</h1>
@@ -11,7 +10,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Payment Method Name <span style="color: #F00">*</span></label>
-                                <input type="text" name="name" class="form-control" required autofocus>
+                                <input type="text" name="name" class="form-control" required autofocus
+                                    autocomplete="off">
                             </div>
                         </div>
                     </div>

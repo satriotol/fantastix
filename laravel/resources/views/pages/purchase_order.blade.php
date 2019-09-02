@@ -25,26 +25,28 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th widht="15%">Purchase Order Number</th>
-                                    <th widht="12%">Outlets</th>
-                                    <th widht="10%">Supplier</th>
-                                    <th widht="10%">Created Date</th>
-                                    <th widht="13%">Status</th>
-                                    <th widht="20%">Action</th>
+                                    <th width="20%">Purchase Order Number</th>
+                                    <th width="12%">Outlets</th>
+                                    <th width="15%">Supplier</th>
+                                    <th width="10%">Created Date</th>
+                                    <th width="13%">Status</th>
+                                    <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($purchase_order as $p)
                                 <tr>
-                                    <td>Uniqlo - Buglis Outlet</td>
-                                    <td>#02-10, B2, Bugis Shopping Mall</td>
-                                    <td>292948484</td>
-                                    <td>safs</td>
-                                    <td style="font-weight: bold;"><span style="color:#090;">Active</span></td>
-                                    <td><a href="#" style="margin-left: 5px;"><button
+                                    <td>{{ $p->po_number }}</td>
+                                    <td>{{ $p->name_outlet }}</td>
+                                    <td>{{ $p->supplier_name }}</td>
+                                    <td>{{ $p->datenow }}</td>
+                                    <td style="font-weight: bold;">{{ $p->nama }}</td>
+                                    <td><a href="/purchase_order/editpurchaseorder/{{ $p->id }}" style="margin-left: 5px;"><button
                                             class="btn btn-primary">Edit</button></a>
-                                            <a href="#" style="margin-left: 5px;" onclick="return confirm('Are you sure to delete this Purchase Order : ?')"><i class="fa fa-times" height="50px" style="color: #c50000"></i></a>
+                                            <!-- <a href="" style="margin-left: 5px;" onclick="return confirm('Are you sure to delete this Purchase Order : ?')"><i class="fa fa-times" height="50px" style="color: #c50000"></i></a> -->
                                             </td>
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

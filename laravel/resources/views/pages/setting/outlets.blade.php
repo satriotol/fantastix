@@ -1,10 +1,6 @@
 @extends('layouts.default-sidebar')
 @section('content')
 <style>
-    h1 {
-        color: #5f6468;
-    }
-
     .table th {
         background-color: #f7f7f8;
     }
@@ -20,40 +16,53 @@
                     <a href="{{ url('/setting/outlets/addoutlet') }}"><button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"> </i> Add New Outlet</button></a>
                 </div>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <div class="row" style="margin-left: 0px; margin-top: 15px;">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="exampel">
                             <thead>
                                 <tr>
-                                    <th widht="28%">Outlet Name</th>
-                                    <th widht="24%">Address</th>
-                                    <th widht="24%">Contact Number</th>
-                                    <th widht="12%">Status</th>
-                                    <th widht="12%">Action</th>
+                                    <th width="28%">Outlet Name</th>
+                                    <th width="24%">Address</th>
+                                    <th width="24%">Contact Number</th>
+                                    <th width="12%">Status</th>
+                                    <th width="12%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($outlets as $p)
                                 <tr>
-                                    <td>Uniqlo - Buglis Outlet</td>
-                                    <td>#02-10, B2, Bugis Shopping Mall</td>
-                                    <td>292948484</td>
-                                    <td tyle="font-weight: bold;"><span style="color:#090;">Active</span></td>
-                                    <td><a href="#" style="margin-left: 5px;"><button
-                                            class="btn btn-primary">Edit</button></a></td>
+                                    <td>{{$p->name_outlet}}</td>
+                                    <td>{{$p->address_outlet}}</td>
+                                    <td>{{$p->contact_number}}</td>
+                                    @if ($p->status == 0)
+                                    <td style="font-weight: bold;"><span style="color:#090;">Inactive</span></td>
+                                    @else
+                                    <td style="font-weight: bold;"><span style="color:#090;">Active</span></td>
+                                    @endif
+                                    <td><a href="/setting/editoutlet/{{$p->id}}" style="margin-left: 5px;"><button
+                                                class="btn btn-primary">Edit</button></a></td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div></div>
-                <div class="row">
-                    <div class="col-md-6" style="float: left; padding-top: 10px;">
-                        Showing 1 to 1 of 1 entries
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#exampel').DataTable();
+    });
+
+</script>
 </section>
 @stop

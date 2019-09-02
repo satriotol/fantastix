@@ -16,6 +16,12 @@
         <h1>Users</h1>
         <div class="card">
             <div class="card-body">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <div class="row" style="margin-left: 0px">
                     <a href="{{ url('/setting/users/adduser')}}"><button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"> </i> Add New User</button></a>
@@ -25,28 +31,34 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th widht="15%">Full Name</th>
-                                    <th widht="15%">Email</th>
-                                    <th widht="10%">Role</th>
-                                    <th widht="15%">Outlet</th>
-                                    <th widht="10%">Status</th>
-                                    <th widht="20%">Action</th>
+                                    <th width="15%">Full Name</th>
+                                    <th width="15%">Email</th>
+                                    <th width="10%">Role</th>
+                                    <th width="15%">Outlet</th>
+                                    <th width="10%">Status</th>
+                                    <th width="20%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>aaa</td>
-                                    <td>aaa#gmail.com</td>
-                                    <td>Manager</td>
-                                    <td>Uniqlo - Changi Outlet</td>
-                                    <td tyle="font-weight: bold;"><span style="color:#090;">Active</span></td>
-
+                                    @foreach($users as $u)
+                                <tr>
+                                    <td>{{$u->fullname}}</td>
+                                    <td>{{$u->email}}</td>
+                                    <td>{{$u->role_name}}</td>
+                                    <td>{{$u->name_outlet}}</td>
+                                    @if($u->status==1)
+                                    <td style="font-weight: bold;"><span style="color:#090;">Active</span></td>
+                                    @else
+                                    <td style="font-weight: bold;"><span style="color:#090;">Inactive</span></td>
+                                    @endif
                                     <td>
-                                        <a href="#" style="padding: 5px, 5px;"><button
-                                            class="btn btn-primary">Change Password</button></a>
-                                        <a href="#" style="margin-left: 5px;"><button
-                                            class="btn btn-primary">Edit</button></a>
+                                        <a href="ChangePassword/{{$u->id}}" style="padding: 5px, 5px;"><button
+                                                class="btn btn-primary">Change Password</button></a>
+                                        <a href="edituser/{{$u->id}}" style="margin-left: 5px;"><button
+                                                class="btn btn-primary">Edit</button></a>
                                     </td>
+                                    @endforeach
                                 </tr>
                             </tbody>
                         </table>

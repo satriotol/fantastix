@@ -17,7 +17,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row" style="margin-left: 0px">
-                    <a href="{{url}}"><button type="button" class="btn btn-primary">
+                    <a href="{{url('/setting/payment_method/AddPaymentMethod')}}"><button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"> </i> Add Payment Method</button></a>
                 </div>
                 <div class="row" style="margin-left: 0px; margin-top: 15px;">
@@ -25,16 +25,16 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th widht="50%">Payment Method Name</th>
-                                    <th widht="40%">Status</th>
-                                    <th widht="10%">Action</th>
+                                    <th width="50%">Payment Method Name</th>
+                                    <th width="40%">Status</th>
+                                    <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Gift Card</td>
                                     <td tyle="font-weight: bold;"><span style="color:#090;">Active</span></td>
-                                    <td><a href="#" style="margin-left: 5px;"><button
+                                    <td><a href="editpayment" style="margin-left: 5px;"><button
                                             class="btn btn-primary">Edit</button></a></td>
                                 </tr>
                             </tbody>

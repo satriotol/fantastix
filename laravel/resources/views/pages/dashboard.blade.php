@@ -36,10 +36,22 @@
         font-size: 1.5rem;
     }
 
+    #chart {
+        max-width: 1000px;
+        height: 400px;
+        margin: 0 auto
+    }
+
 </style>
 <div class="col-sm-9 col-sm-offset-10 col-lg-10 col-lg-offset-2 main">
     <div class="container">
         <h1>Dashboard</h1>
+        @if(Session::get('coba'))
+        <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <li>Permission Denied</li>
+                </div>
+        @endif
         <div class="row text-center">
             <div class="col-6 col-md-2">
                 <div class="panel panel-default">
@@ -55,7 +67,7 @@
             </div>
             <div class="col-6 col-md-2">
                 <div class="panel panel-default">
-                    <a href="#">
+                    <a href="/todaysales">
                         <div class="panel-body easypiechart-panel">
                             <p>Sales</p>
                             <div class="icon-fa">
@@ -67,7 +79,7 @@
             </div>
             <div class="col-6 col-md-2">
                 <div class="panel panel-default">
-                    <a href="#">
+                    <a href="/salesreports">
                         <div class="panel-body easypiechart-panel">
                             <p>Reports</p>
                             <div class="icon-fa">
@@ -114,7 +126,80 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 20px">
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+    Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Monthly Sales by Outlets'
+        },
+        xAxis: {
+            categories: [
+                'Jan 2019',
+                'Feb 2019',
+                'Mar 2019',
+                'Apr 2019',
+                'May 2019',
+                'Jun 2019',
+                'Jul 2019',
+                'Aug 2019',
+                'Sep 2019',
+                'Oct 2019',
+                'Nov 2019',
+                'Dec 2019'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Amount (SGD)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Uniqlo - Bugis Outlet',
+            data: [20000, 10000, 1500, 4500, null, null, null, null, null, null, null, null]
+
+        }, {
+            name: 'Uniqlo - Changi Outlet',
+            data: [35000, 25000, 1500, 4500, null, null, null, null, null, null, null, null]
+
+        }, {
+            name: 'Uniqlo - Bugis Outlet',
+            data: [20000, 1500, 15000, 45000, null, null, null, null, null, null, null, null]
+
+        }]
+    });
+
+</script>
+
 </section>
 @stop

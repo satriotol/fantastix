@@ -17,7 +17,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row" style="margin-left: 0px">
-                    <a href="#"><button type="button" class="btn btn-primary">
+                    <a href="/setting/suppliersadd"><button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"> </i> Add New Supplier</button></a>
                 </div>
                 <div class="row" style="margin-left: 0px; margin-top: 15px;">
@@ -25,24 +25,30 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th widht="20%">Name</th>
-                                    <th widht="15%">Email</th>
-                                    <th widht="10%">Telephone</th>
-                                    <th widht="15%">Fax</th>
-                                    <th widht="10%">Status</th>
-                                    <th widht="10%">Action</th>
+                                    <th width="20%">Name</th>
+                                    <th width="15%">Email</th>
+                                    <th width="10%">Telephone</th>
+                                    <th width="15%">Fax</th>
+                                    <th width="10%">Status</th>
+                                    <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($supplier as $p)
                                 <tr>
-                                    <td>AAA</td>
-                                    <td>AAA@gmail.com</td>
-                                    <td>292948484</td>
-                                    <td>292948484</td>
-                                    <td tyle="font-weight: bold;"><span style="color:#090;">Active</span></td>
-                                    <td><a href="#" style="margin-left: 5px;"><button
-                                            class="btn btn-primary">Edit</button></a></td>
+                                    <td>{{ $p->supplier_name }}</td>
+                                    <td>{{ $p->email }}</td>
+                                    <td>{{ $p->telephone }}</td>
+                                    <td>{{ $p->fax }}</td>
+                                    @if ($p->status == 0)
+                                    <td style="font-weight: bold;"><span style="color:red;">NonActive</span></td>
+                                    @else
+                                    <td style="font-weight: bold;"><span style="color:#090;">Active</span></td>
+                                    @endif
+                                    <td><a href="editsupplier/{{ $p->id }}" style="margin-left: 5px;"><button
+                                                class="btn btn-primary">Edit</button></a></td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
